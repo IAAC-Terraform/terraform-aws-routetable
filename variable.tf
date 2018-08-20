@@ -2,7 +2,9 @@ variable "vpc_id" {}
 variable "name" {}
 variable "env" {}
 variable "create_vpc" {}
-variable "subnets" {}
+variable "subnets" {
+  type = "list"
+}
 variable "type" {
   default = ""
 }
