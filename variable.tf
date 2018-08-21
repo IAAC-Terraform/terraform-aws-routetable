@@ -8,3 +8,7 @@ variable "subnets" {
 variable "type" {
   default = ""
 }
+
+variable "subnet_id" {
+  type = "list"
+}

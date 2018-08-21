@@ -7,3 +7,9 @@ resource "aws_route_table" "rt" {
     env = "${var.env}"
   }
 }
+
+resource "aws_route_table_association" "rtassociaton" {
+  count          = "${var.create_vpc ? length(var.subnets) : 0}"
+  subnet_id      = "${element(var.subnet_id, count.index)}"
+  route_table_id = "${element(aws_route_table.rt.*.id, count.index)}"
+}
